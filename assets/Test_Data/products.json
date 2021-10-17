@@ -1,0 +1,86 @@
+[{
+  "_id": {
+    "$oid": "5f15d8852a025143f9593a7c"
+  },
+  "image": "https://th.bing.com/th/id/R.e1f9f411777a88aa6479bb98fc80259b?rik=j7OGOn5AFGDFkQ&pid=ImgRaw&r=0",
+  "brand": "Nike",
+  "price": 250,
+  "rating": 1,
+  "numReviews": 0,
+  "isFeatured": true,
+  "name": "Jordan Ones",
+  "description": "The most hard FIFA ever",
+  "category": {
+    "$oid": "5f15d5cdcb4a6642bddc0fe9"
+  },
+  "countInStock": 25,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f15d92ee520d44421ed8e9b"
+  },
+  "image": "https://th.bing.com/th/id/R.0e4ede2acca994288b02b1c15816f01d?rik=Ha9qk35nzAopng&pid=ImgRaw&r=0",
+  "brand": "Adidas",
+  "price": 350.9,
+  "rating": 5,
+  "numReviews": 0,
+  "isFeatured": true,
+  "name": "Yeezy Oreos",
+  "description": "beautiful chair for garden",
+  "category": {
+    "$oid": "5f15d5b7cb4a6642bddc0fe8"
+  },
+  "countInStock": 10,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f15d964e520d44421ed8e9c"
+  },
+  "image": "",
+  "brand": "Puma",
+  "price": 0,
+  "rating": 5,
+  "numReviews": 0,
+  "isFeatured": true,
+  "name": "Mids",
+  "description": "beautiful Swimming Pool for garden",
+  "category": {
+    "$oid": "5f15d5b7cb4a6642bddc0fe8"
+  },
+  "countInStock": 10,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f15d9b3e520d44421ed8e9d"
+  },
+  "image": "https://img2.cgtrader.com/items/2768236/30a6c57977/ps5-console-and-controller-3d-model-max-obj-3ds-fbx.jpg",
+  "brand": "Sony",
+  "price": 490.9,
+  "rating": 5,
+  "numReviews": 0,
+  "isFeatured": true,
+  "name": "PS5",
+  "description": "Rated E for everyone",
+  "category": {
+    "$oid": "5f15d5b7cb4a6642bddc0fe8"
+  },
+  "countInStock": 5,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f15da13e520d44421ed8e9e"
+  },
+  "image": "https://th.bing.com/th/id/R.bc499d17de5405c19c01b817cb6066d6?rik=ajnu%2f%2bD3AtrvQQ&riu=http%3a%2f%2fimages.coffeemachinesi.com%2fl-m%2fsupreme-moka-express-coffee-maker-ss19-new-v-2292082338.jpg&ehk=H6tcESrgiAjrEGVlClewy%2fLNMfYVqhkt93cXJBUs9Fg%3d&risl=&pid=ImgRaw&r=0",
+  "brand": "Supreme",
+  "price": 1000,
+  "rating": 5,
+  "numReviews": null,
+  "isFeatured": true,
+  "name": "Supreme Coffee Maker",
+  "description": "Depresso Expresso",
+  "category": {
+    "$oid": "5f15d5b2cb4a6642bddc0fe7"
+  },
+  "countInStock": 2,
+  "__v": 0
+}]
