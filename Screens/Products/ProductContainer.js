@@ -3,6 +3,8 @@ import { View, StyleSheet, ActivityIndicator, FlatList } from 'react-native'
 import { Container, Header, Icon, Item, Input, Text, Row } from 'native-base'
 
 import ProductList from './ProductList'
+import SearchedProduct from './SearchedProducts';
+import Banner from '../../Shared/Banner';
 
 const data = require('../../assets/Test_Data/products.json');
 
@@ -10,15 +12,35 @@ const ProductContainer = () => {
 
     const [products, setProducts] = useState([]);
     const [productsFiltered, setProductsFiltered] = useState([]);
+    const [focus, setFocus] = useState();
 
     useEffect(() => {
         setProducts(data);
         setProductsFiltered(data);
+        setFocus(false);
         
         return () => {
             setProducts([])
+            setProductsFiltered([])
+            setFocus()
         }
     }, [])
+
+
+    const searchProduct = (text) => {
+        setProductsFiltered(
+            products.filter((i) => i.name.toLowerCase().includes(text.toLowerCase()))
+        )
+    }
+
+    const openList = () => {
+        setFocus(true);
+    }
+
+    const onBlur = () => {
+        setFocus(false);
+    }
+
 
     return (
         <Container>
@@ -27,14 +49,22 @@ const ProductContainer = () => {
                 <Icon name="ios-search"/>
                 <Input
                     placeholder="Search The Bando"
-                    //onFocus={}
-                    //onChangeText={(text) => {}
+                    onFocus={openList}
+                    onChangeText={(text) => searchProduct(text)}
                 />
+                {focus == true ? <Icon onPress={onBlur} name='ios-close' /> : null }
             </Item>
         </Header>
 
+        {focus == true ? <SearchedProduct
+                productsFiltered={productsFiltered}
+        />
+            : 
             <View>
                 <View style={styles.container}>
+                    <View>
+                        <Banner/>
+                    </View>
                     <FlatList
                         numColumns={2}
                         Vertical
@@ -45,7 +75,9 @@ const ProductContainer = () => {
                         keyExtractor={item => item.name}
                     />
                 </View>
-            </View>
+            </View> 
+        }
+
         </Container>
     )
 

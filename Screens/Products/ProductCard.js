@@ -6,7 +6,6 @@ import {
     Image,
     Text,
     Button,
-    BackgroundImage
 } from 'react-native';
 
 
@@ -73,14 +72,17 @@ const styles = StyleSheet.create({
         fontSize: 14,
         textAlign: 'center',
         color: 'white',
-        textShadowOffset: {width: 3, height: 3},
-        textShadowRadius: 15,
+        textShadowOffset: {width: 2, height: 2},
+        textShadowRadius: 2,
         textShadowColor: 'black',
     },
     price: {
         fontSize: 20,
-        color: 'orange',
-        marginTop: 10
+        color: '#fd151b',
+        marginTop: 10,
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 1,
+        textShadowColor: 'black',
     }
 })
 

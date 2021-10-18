@@ -9,7 +9,7 @@
   "numReviews": 0,
   "isFeatured": true,
   "name": "Jordan Ones",
-  "description": "The most hard FIFA ever",
+  "description": "The hardest Jordans ever",
   "category": {
     "$oid": "5f15d5cdcb4a6642bddc0fe9"
   },
@@ -26,7 +26,7 @@
   "numReviews": 0,
   "isFeatured": true,
   "name": "Yeezy Oreos",
-  "description": "beautiful chair for garden",
+  "description": "In Yeezus we trust",
   "category": {
     "$oid": "5f15d5b7cb4a6642bddc0fe8"
   },
@@ -42,8 +42,8 @@
   "rating": 5,
   "numReviews": 0,
   "isFeatured": true,
-  "name": "Mids",
-  "description": "beautiful Swimming Pool for garden",
+  "name": "My heart",
+  "description": "Doesnt Exist",
   "category": {
     "$oid": "5f15d5b7cb4a6642bddc0fe8"
   },
