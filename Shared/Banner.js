@@ -20,7 +20,9 @@ const Banner = () => {
     },[])
 
     return (
-        <ScrollView>
+        <ScrollView
+        bounces={false}
+        >
         <View style={styles.container}>
             <View style={styles.swiper}>
                 <Swiper
@@ -54,14 +56,16 @@ const styles = StyleSheet.create({
         marginBottom: -30 ,
     }, 
     swiper: {
+        alignSelf: 'center',
         width: width,
         alignItems: 'center',
         marginTop: 15,
     },
     imageBanner: {
+        alignItems: 'center',
         height: width / 5,
-        width: width - 40 ,
-        borderRadius: 20,
+        width: width - 35 ,
+        borderRadius: 5,
         marginHorizontal: 20,
         marginBottom: -10,
     }

@@ -1,28 +1,42 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, ActivityIndicator, FlatList } from 'react-native'
+import { View, StyleSheet, ActivityIndicator, FlatList, ScrollView } from 'react-native'
 import { Container, Header, Icon, Item, Input, Text, Row } from 'native-base'
 
 import ProductList from './ProductList'
 import SearchedProduct from './SearchedProducts';
 import Banner from '../../Shared/Banner';
+import CategoryFilter from './CategoryFilter';
 
+//Import Test Data for 
 const data = require('../../assets/Test_Data/products.json');
+const productCategories = require('../../assets/Test_Data/categories.json');
 
 const ProductContainer = () => {
 
     const [products, setProducts] = useState([]);
     const [productsFiltered, setProductsFiltered] = useState([]);
     const [focus, setFocus] = useState();
+    const [categories, setCategories] = useState([]);
+    const [productsCtg, setProductsCtg] = useState([]);
+    const [active, setActive] = useState();
+    const [initialState, setInitialState] = useState([]);
 
     useEffect(() => {
         setProducts(data);
         setProductsFiltered(data);
         setFocus(false);
+        setCategories(productCategories);
+        setActive(-1);
+        setInitialState(data)
+        setProductsCtg(data)
         
         return () => {
             setProducts([])
             setProductsFiltered([])
             setFocus()
+            setCategories([])
+            setActive()
+            setInitialState()
         }
     }, [])
 
@@ -39,6 +53,19 @@ const ProductContainer = () => {
 
     const onBlur = () => {
         setFocus(false);
+    }
+
+    const changeCtg = (ctg) => {
+        {
+            ctg === 'all'
+                ? [setProductsCtg(initialState), setActive(true)]
+                : [
+                    setProductsCtg(
+                        products.filter((i) => i.category._id === ctg),
+                        setActive(true)
+                      ),
+                ]
+        }
     }
 
 
@@ -60,12 +87,38 @@ const ProductContainer = () => {
                 productsFiltered={productsFiltered}
         />
             : 
-            <View>
-                <View style={styles.container}>
-                    <View>
-                        <Banner/>
-                    </View>
-                    <FlatList
+            <ScrollView>
+                <View>
+                    <View >
+                        <View>
+                            <Banner/>
+                        </View>
+                        <View>
+                            <CategoryFilter
+                                categories={categories}
+                                CategoryFilter={changeCtg}
+                                productsCtg={productsCtg}
+                                active={active}
+                                setActive={setActive}
+                            />
+                        </View>
+                        {productsCtg.length > 0 ? (
+                            <View style={styles.listContainer}>
+                                {productsCtg.map((item) => {
+                                    return(
+                                        <ProductList
+                                            key={item.name}
+                                            item={item}
+                                        />
+                                    )
+                                })}
+                            </View>
+                            ) : 
+                            <View style={[styles.center, { height: '40%'}]}>
+                                <Text>No Products Found</Text>
+                            </View>
+                        }
+                    {/* <FlatList
                         numColumns={2}
                         Vertical
                         data={products}
@@ -73,9 +126,10 @@ const ProductContainer = () => {
                         key={item.id} 
                         item={item}/>}
                         keyExtractor={item => item.name}
-                    />
-                </View>
-            </View> 
+                    /> */}
+                    </View>
+                </View> 
+            </ScrollView>
         }
 
         </Container>
