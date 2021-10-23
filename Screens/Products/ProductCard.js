@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     image: {
-        marginTop: 45,
+        marginTop: '25%',
         borderRadius: 5,
         width: width / 2 - 30,
         height: width / 2,
-        backgroundColor: 'transparent',
+        backgroundColor: 'black',
         position: 'absolute',
-        top: -40
+        top: '-18%'
     },
     card: {
         marginBottom: 60,

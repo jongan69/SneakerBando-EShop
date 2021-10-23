@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, ActivityIndicator, FlatList, ScrollView } from 'react-native'
+import { 
+    View, 
+    StyleSheet, 
+    ActivityIndicator, 
+    FlatList, 
+    ScrollView,
+    Dimensions
+ } from 'react-native'
 import { Container, Header, Icon, Item, Input, Text, Row } from 'native-base'
 
-import ProductList from './ProductList'
 import SearchedProduct from './SearchedProducts';
 import Banner from '../../Shared/Banner';
+import ProductList from './ProductList'
 import CategoryFilter from './CategoryFilter';
 
+var { height } = Dimensions.get('window');
 //Import Test Data for 
 const data = require('../../assets/Test_Data/products.json');
 const productCategories = require('../../assets/Test_Data/categories.json');
 
-const ProductContainer = () => {
+const ProductContainer = (props) => {
 
     const [products, setProducts] = useState([]);
     const [productsFiltered, setProductsFiltered] = useState([]);
@@ -83,9 +91,11 @@ const ProductContainer = () => {
             </Item>
         </Header>
 
-        {focus == true ? <SearchedProduct
-                productsFiltered={productsFiltered}
-        />
+        {focus == true ? 
+        <SearchedProduct
+            navigation={props.navigation}
+            productsFiltered={productsFiltered}
+            />
             : 
             <ScrollView>
                 <View>
@@ -96,7 +106,7 @@ const ProductContainer = () => {
                         <View>
                             <CategoryFilter
                                 categories={categories}
-                                CategoryFilter={changeCtg}
+                                categoryFilter={changeCtg}
                                 productsCtg={productsCtg}
                                 active={active}
                                 setActive={setActive}
@@ -107,14 +117,15 @@ const ProductContainer = () => {
                                 {productsCtg.map((item) => {
                                     return(
                                         <ProductList
-                                            key={item.name}
+                                            navigation={props.navigation}
+                                            key={item._id}
                                             item={item}
                                         />
                                     )
                                 })}
                             </View>
                             ) : 
-                            <View style={[styles.center, { height: '40%'}]}>
+                            <View style={[styles.center, { height: height / 2 }]}>
                                 <Text>No Products Found</Text>
                             </View>
                         }
@@ -143,13 +154,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
     },
     listContainer: {
-        width: '100%',
+        height: height,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'flex-start',
         flexWrap: 'wrap',
         backgroundColor: 'black'
-    }
+    },
+    center: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })
 
 export default ProductContainer;
