@@ -35,6 +35,11 @@ const SingleProduct = (props) => {
                             $ {item.price}
                         </Text>
                     </Left>
+                    <Right>
+                        <Button title="Add" />
+
+                      
+                    </Right>
             </View>
         </Container>
     )
