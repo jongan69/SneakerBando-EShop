@@ -9,6 +9,7 @@ import {
  } from 'react-native'
 import { Container, Header, Icon, Item, Input, Text, Row } from 'native-base'
 
+
 import SearchedProduct from './SearchedProducts';
 import Banner from '../../Shared/Banner';
 import ProductList from './ProductList'
