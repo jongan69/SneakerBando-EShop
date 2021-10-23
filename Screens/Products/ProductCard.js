@@ -1,7 +1,7 @@
 import React from 'react';
-import { 
+import {
     StyleSheet,
-    View, 
+    View,
     Dimensions,
     Image,
     Text,
@@ -13,36 +13,36 @@ import * as actions from '../../Redux/Actions/cartActions'
 var { width } = Dimensions.get('window');
 
 const ProductCard = (props) => {
-    const { name, price, image, countInStock} = props;
+    const { name, price, image, countInStock } = props;
 
     return (
         <View style={styles.container}>
-            <Image 
-            style={styles.image}
-            resizeMode='cover'
-            source={{ uri : image ? image : 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
+            <Image
+                style={styles.image}
+                resizeMode='cover'
+                source={{ uri: image ? image : 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png' }}
             />
-            <View style={styles.card}/>
+            <View style={styles.card} />
             <Text style={styles.title}>
                 {name.length > 15 ? name.substring(0, 15 - 3)
-                    + '...' : name    
-            }
+                    + '...' : name
+                }
             </Text>
             <Text style={styles.price}>${price}</Text>
-            
-            { countInStock > 0 ? (
+
+            {countInStock > 0 ? (
                 <View style={{ marginBottom: 60 }}>
-                    <Button 
-                    title={'Add to Cart'} 
-                    color={'green'}
-                    onPress={() => {
-                        props.addItemToCart(props)
-                    }}
+                    <Button
+                        title={'Add to Cart'}
+                        color={'green'}
+                        onPress={() => {
+                            props.addItemToCart(props)
+                        }}
                     />
                 </View>
-            ) : 
-            <Text style={{ marginBottom: 20 }}> Currently Unavailible </Text>}
-            
+            ) :
+                <Text style={{ marginBottom: 20 }}> Currently Unavailible </Text>}
+
         </View>
     )
 }
@@ -50,7 +50,7 @@ const ProductCard = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addItemToCart: (product) => {
-            dispatch(actions.addToCart({quantity: 1, product}))
+            dispatch(actions.addToCart({ quantity: 1, product }))
         }
     }
 }
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         textAlign: 'center',
         color: 'white',
-        textShadowOffset: {width: 2, height: 2},
+        textShadowOffset: { width: 2, height: 2 },
         textShadowRadius: 2,
         textShadowColor: 'black',
     },
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#fd151b',
         marginTop: 10,
-        textShadowOffset: {width: 1, height: 1},
+        textShadowOffset: { width: 1, height: 1 },
         textShadowRadius: 1,
         textShadowColor: 'black',
     }

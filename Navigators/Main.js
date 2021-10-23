@@ -8,24 +8,29 @@ import HomeNavigator from './HomeNavigator';
 import CartNavigator from './CartNavigator';
 import Cart from '../Screens/Cart/Cart';
 
+import CartIcon from '../Shared/CartIcon';
+
 const Tab = createBottomTabNavigator();
 
 const Main = () => {
 
     return (
-        <Tab.Navigator 
+        <Tab.Navigator
             initialRouteName="Home"
             tabBarOptions={{
+                headerShown: false,
                 keyboardHidesTabBar: true,
                 showLabel: false,
                 activeTintColor: '#fd151b',
                 backgroundColor: 'black'
             }}
         >
+
             <Tab.Screen
                 name='Home'
                 component={HomeNavigator}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="home"
@@ -42,20 +47,24 @@ const Main = () => {
                 component={CartNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <Icon
-                            name="shopping-cart"
-                            style={{ position: 'relative' }}
-                            color={color}
-                            size={30}
-                        />
+                        <View>
+                            <Icon
+                                name="shopping-cart"
+                                style={{ position: 'relative' }}
+                                color={color}
+                                size={30}
+                            />
+                            <CartIcon />
+                        </View>
                     )
                 }}
             />
 
             <Tab.Screen
                 name="Admin"
-                component={HomeNavigator}
+                component={CartNavigator}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="cog"
@@ -68,8 +77,9 @@ const Main = () => {
 
             <Tab.Screen
                 name="User"
-                component={HomeNavigator}
+                component={CartNavigator}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <Icon
                             name="user"

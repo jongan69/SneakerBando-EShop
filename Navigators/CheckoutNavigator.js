@@ -9,7 +9,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 const Tab = createMaterialTopTabNavigator();
 
 function MyTabs() {
-    return(
+    return (
         <Tab.Navigator>
             <Tab.Screen name="Shipping" component={null} />
 

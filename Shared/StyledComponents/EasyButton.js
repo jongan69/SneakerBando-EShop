@@ -19,25 +19,25 @@ const EasyButton = styled.TouchableOpacity`
             background: #62b1f6
         `
     }
-    ${(props) => 
+    ${(props) =>
         props.danger &&
         css`
             background: #f40105
         `
     }
-    ${(props) => 
+    ${(props) =>
         props.large &&
         css`
             width: 135px
         `
     }
-    ${(props) => 
+    ${(props) =>
         props.medium &&
         css`
             width: 100px
         `
     }
-    ${(props) => 
+    ${(props) =>
         props.small &&
         css`
             width: 40px

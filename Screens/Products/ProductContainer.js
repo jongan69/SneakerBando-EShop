@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { 
-    View, 
-    StyleSheet, 
-    ActivityIndicator, 
-    FlatList, 
+import {
+    View,
+    StyleSheet,
+    ActivityIndicator,
+    FlatList,
     ScrollView,
     Dimensions
- } from 'react-native'
+} from 'react-native'
 import { Container, Header, Icon, Item, Input, Text, Row } from 'native-base'
 
 
@@ -38,7 +38,7 @@ const ProductContainer = (props) => {
         setActive(-1);
         setInitialState(data)
         setProductsCtg(data)
-        
+
         return () => {
             setProducts([])
             setProductsFiltered([])
@@ -72,7 +72,7 @@ const ProductContainer = (props) => {
                     setProductsCtg(
                         products.filter((i) => i.category._id === ctg),
                         setActive(true)
-                      ),
+                    ),
                 ]
         }
     }
@@ -80,57 +80,57 @@ const ProductContainer = (props) => {
 
     return (
         <Container>
-        <Header searchBar rounded>
-            <Item>
-                <Icon name="ios-search"/>
-                <Input
-                    placeholder="Search The Bando"
-                    onFocus={openList}
-                    onChangeText={(text) => searchProduct(text)}
-                />
-                {focus == true ? <Icon onPress={onBlur} name='ios-close' /> : null }
-            </Item>
-        </Header>
+            <Header searchBar rounded>
+                <Item>
+                    <Icon name="ios-search" />
+                    <Input
+                        placeholder="Search The Bando"
+                        onFocus={openList}
+                        onChangeText={(text) => searchProduct(text)}
+                    />
+                    {focus == true ? <Icon onPress={onBlur} name='ios-close' /> : null}
+                </Item>
+            </Header>
 
-        {focus == true ? 
-        <SearchedProduct
-            navigation={props.navigation}
-            productsFiltered={productsFiltered}
-            />
-            : 
-            <ScrollView>
-                <View>
-                    <View >
-                        <View>
-                            <Banner/>
-                        </View>
-                        <View>
-                            <CategoryFilter
-                                categories={categories}
-                                categoryFilter={changeCtg}
-                                productsCtg={productsCtg}
-                                active={active}
-                                setActive={setActive}
-                            />
-                        </View>
-                        {productsCtg.length > 0 ? (
-                            <View style={styles.listContainer}>
-                                {productsCtg.map((item) => {
-                                    return(
-                                        <ProductList
-                                            navigation={props.navigation}
-                                            key={item._id}
-                                            item={item}
-                                        />
-                                    )
-                                })}
+            {focus == true ?
+                <SearchedProduct
+                    navigation={props.navigation}
+                    productsFiltered={productsFiltered}
+                />
+                :
+                <ScrollView>
+                    <View>
+                        <View >
+                            <View>
+                                <Banner />
                             </View>
-                            ) : 
-                            <View style={[styles.center, { height: height / 2 }]}>
-                                <Text>No Products Found</Text>
+                            <View>
+                                <CategoryFilter
+                                    categories={categories}
+                                    categoryFilter={changeCtg}
+                                    productsCtg={productsCtg}
+                                    active={active}
+                                    setActive={setActive}
+                                />
                             </View>
-                        }
-                    {/* <FlatList
+                            {productsCtg.length > 0 ? (
+                                <View style={styles.listContainer}>
+                                    {productsCtg.map((item) => {
+                                        return (
+                                            <ProductList
+                                                navigation={props.navigation}
+                                                key={item._id}
+                                                item={item}
+                                            />
+                                        )
+                                    })}
+                                </View>
+                            ) :
+                                <View style={[styles.center, { height: height / 2 }]}>
+                                    <Text>No Products Found</Text>
+                                </View>
+                            }
+                            {/* <FlatList
                         numColumns={2}
                         Vertical
                         data={products}
@@ -139,10 +139,10 @@ const ProductContainer = (props) => {
                         item={item}/>}
                         keyExtractor={item => item.name}
                     /> */}
+                        </View>
                     </View>
-                </View> 
-            </ScrollView>
-        }
+                </ScrollView>
+            }
 
         </Container>
     )

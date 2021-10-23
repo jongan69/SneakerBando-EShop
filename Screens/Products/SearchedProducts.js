@@ -18,21 +18,23 @@ const SearchedProduct = (props) => {
                         avatar
                     >
                         <Left>
-                            <Thumbnail 
-                            source={{ uri : item.image ? 
-                                item.image : 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
+                            <Thumbnail
+                                source={{
+                                    uri: item.image ?
+                                        item.image : 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'
+                                }}
                             />
-                             <Body>
-                            <Text>{item.name}</Text>
-                            <Text note>{item.description}</Text>
-                        </Body>
+                            <Body>
+                                <Text>{item.name}</Text>
+                                <Text note>{item.description}</Text>
+                            </Body>
                         </Left>
                     </ListItem>
                 ))
-            ): (
+            ) : (
                 <View>
                     <Left>
-                        <Text style={styles.center}> 
+                        <Text style={styles.center}>
                             No products matched search!
                         </Text>
                     </Left>
