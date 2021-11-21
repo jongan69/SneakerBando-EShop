@@ -7,19 +7,18 @@ import {
 } from "react-native";
 import {
     Container,
+    H1,
     Text,
     Left,
     Right,
 } from "native-base";
 import { SwipeListView } from 'react-native-swipe-list-view'
 import CartItem from './CartItem'
-import HomeNavigator from "../../Navigators/HomeNavigator";
 import Icon from "react-native-vector-icons/FontAwesome";
 import EasyButton from "../../Shared/StyledComponents/EasyButton"
 
 import { connect } from "react-redux";
 import * as actions from "../../Redux/Actions/cartActions";
-import { NavigationContainer } from "@react-navigation/native";
 // import AsyncStorage from "@react-native-community/async-storage"
 
 var { height, width } = Dimensions.get("window");
@@ -35,11 +34,26 @@ const Cart = (props) => {
         <>
             {props.cartItems.length ? (
                 <Container>
+                    <H1 style={{
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        borderStyle: 'solid',
+                        width: width,
+                        padding: 10,
+                        height: 50,
+                        color: 'white',
+                        backgroundColor: 'black',
+                        borderWidth: 2,
+                    }}>
+                        Cart
+                    </H1>
                     <SwipeListView
                         data={props.cartItems}
+
                         renderItem={(data) => (
                             <CartItem item={data} />
                         )}
+
                         renderHiddenItem={(data) => (
                             <View style={styles.hiddenContainer}>
                                 <TouchableOpacity
@@ -76,7 +90,9 @@ const Cart = (props) => {
                             <EasyButton
                                 primary
                                 medium
-                                onPress={() => props.navigation.navigate('Checkout')}
+                                onPress={() => {
+                                    props.navigation.navigate('Checkout')
+                                }}
                             >
                                 <Text style={{ color: 'white' }}>Checkout</Text>
                             </EasyButton>
