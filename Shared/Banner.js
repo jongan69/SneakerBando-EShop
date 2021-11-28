@@ -9,9 +9,9 @@ const Banner = () => {
 
     useEffect(() => {
         setBannerData([
-            "https://instagram.ftpa1-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/241850382_175340988006403_4532184724086610748_n.jpg?_nc_ht=instagram.ftpa1-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=rf6sinc_XqEAX9BltLc&edm=AGenrX8BAAAA&ccb=7-4&oh=2f42dc94740ab2e78a2a642185c6a7ed&oe=6175A71B&_nc_sid=5eceaa",
-            "https://instagram.ftpa1-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/225560302_868793527064602_6115519289794575994_n.jpg?_nc_ht=instagram.ftpa1-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=LH4-ZpPH5QwAX9aPNOJ&edm=AGenrX8BAAAA&ccb=7-4&oh=30658653f8a3703e08d95ec567cef909&oe=61753EDB&_nc_sid=5eceaa",
-            "https://instagram.ftpa1-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/241159704_1791871474331213_548991945110256786_n.jpg?_nc_ht=instagram.ftpa1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=M5tZ3je5NDIAX8zRymJ&tn=EGE_AeQzbo419qvZ&edm=AGenrX8BAAAA&ccb=7-4&oh=73a1d5dfe58d6d108b7a6cb688319219&oe=617428DD&_nc_sid=5eceaa"
+            "https://instagram.ftpa1-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/169352156_288626302730473_8850155141563584764_n.jpg?_nc_ht=instagram.ftpa1-1.fna.fbcdn.net&_nc_cat=101&_nc_ohc=Zj6J96vxbF4AX8BUV8X&edm=AGenrX8BAAAA&ccb=7-4&oh=ba908a78adf65952371ad2302c5255cd&oe=61AB31F9&_nc_sid=5eceaa",
+            "https://instagram.ftpa1-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/241159704_1791871474331213_548991945110256786_n.jpg?_nc_ht=instagram.ftpa1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=gHpYDodjdrAAX_ytVpu&tn=EGE_AeQzbo419qvZ&edm=AGenrX8BAAAA&ccb=7-4&oh=576027c76b481556d9f36ef7e388f4ad&oe=61A98D9D&_nc_sid=5eceaa",
+            "https://instagram.ftpa1-2.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/241546974_123859776654959_4192189819347242045_n.jpg?_nc_ht=instagram.ftpa1-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=sDCYhvibFroAX9GgpYh&tn=EGE_AeQzbo419qvZ&edm=AGenrX8BAAAA&ccb=7-4&oh=9531cee2e9ecd6b1bcc0fc4aaa92cd50&oe=61AAF042&_nc_sid=5eceaa"
     ])
 
         return () => {

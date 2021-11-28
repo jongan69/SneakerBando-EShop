@@ -16,9 +16,10 @@ import {
 } from 'native-base';
 
 const methods = [
-    { name: 'Cash on Delivery', value: 1 },
-    { name: 'Bank Transfer', value: 2 },
-    { name: 'Card Payment', value: 3 },
+    { name: 'Cash on Delivery (USD)', value: 1 },
+    { name: 'Bank Transfer (USD)', value: 2 },
+    { name: 'Card Payment (USD)', value: 3 },
+    { name: 'Cryptocurrency: BTC/ETH/SHIB/HOES', value: 3 },
 ]
 
 const paymentCards = [
@@ -51,10 +52,30 @@ const Payment = (props) => {
                             </Left>
                             <Right>
                                 <Radio selected={selected == item.value}/>
+
+
                             </Right>
                         </ListItem>
                     )
                 })}
+                {selected == 3 ? (
+                    <Picker
+                    mode='dropdown'
+                    iosIcon={<Icon name={"arrow-down"}/>}
+                    headerStyle={{ bacckgroundColor: 'orange'}}
+                    headerBackButtonTextStyle={{ color: '#fff' }}
+                    headerTitleStyle={{ color: '#fff' }}
+                    selectedValue={card}
+                    onValueChange={(x)=> setCard(x)}
+                    >
+                        {paymentCards.map((c, index) => {
+                            return <Picker.Item label={c.name} value={c.name}/>
+                        })}
+                    </Picker>
+                ) : null }
+                <View style={{ marginTop: 60, alignSelf: 'center'}}>
+                        <Button title={"Confirm"} onPress={() => props.naviigation.navigate("Confirm", {order}) }/>
+                </View>
             </Content>
         </Container>
     )
