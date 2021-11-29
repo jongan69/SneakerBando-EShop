@@ -41,7 +41,6 @@ const Confirm = (props) => {
               });
           });
     }
-    
   };
 
   const confirmOrder = () => {
