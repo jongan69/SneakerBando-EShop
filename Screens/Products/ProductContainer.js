@@ -64,7 +64,6 @@ const ProductContainer = (props) => {
 
         return () => {
             setProducts([])
-            setProductsFiltered([])
             setFocus()
             setCategories([])
             setActive()
